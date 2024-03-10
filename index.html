@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="text"], select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="range"] {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+    button.cancel {
+        background-color: #dc3545;
+    }
+</style>
+</head>
+<body>
+
+<form id="myForm">
+    <label for="dropdown">Select a tool</label>
+    <select id="dropdown" name="dropdown">
+        <option value="option1">BWA Mem</option>
+        <option value="option2">Hisat</option>
+        <option value="option3">Alevin</option>
+        <option value="option4">Etc.</option>
+    </select>
+
+    <label for="slider1">CPU:</label>
+    <input type="range" id="slider1" name="slider1" min="1" max="128" value="8">
+    <input type="text" id="slider1Value" value="8">
+
+    <label for="slider2">Memory:</label>
+    <input type="range" id="slider2" name="slider2" min="1" max="512" value="32">
+    <input type="text" id="slider2Value" value="32">
+
+    <button type="button" class="cancel">Cancel</button>
+    <button type="submit">Save</button>
+</form>
+
+<script>
+    // Get references to the sliders and text input fields
+    const slider1 = document.getElementById('slider1');
+    const slider1Value = document.getElementById('slider1Value');
+    const slider2 = document.getElementById('slider2');
+    const slider2Value = document.getElementById('slider2Value');
+
+    // Update the text input fields when the sliders change
+    slider1.addEventListener('input', function() {
+        slider1Value.value = this.value;
+    });
+    slider1Value.addEventListener('input', function() {
+        slider1.value = this.value;
+    });
+
+    slider2.addEventListener('input', function() {
+        slider2Value.value = this.value;
+    });
+    slider2Value.addEventListener('input', function() {
+        slider2.value = this.value;
+    });
+
+</script>
+
+</body>
+</html>
